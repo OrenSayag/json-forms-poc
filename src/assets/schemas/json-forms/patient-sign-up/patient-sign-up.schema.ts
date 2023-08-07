@@ -2,6 +2,14 @@ const schema = {
   type: "object",
   additionalProperties: false,
   properties: {
+    doctorData: {
+      type: "object",
+      properties: {
+        ["שם הרופא"]: {
+          type: "string",
+        },
+      },
+    },
     personalData: {
       type: "object",
       properties: {

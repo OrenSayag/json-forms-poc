@@ -94,6 +94,19 @@ const uischema = {
         },
       ],
     },
+    {
+      type: "Label",
+      text: "פרטי רופא",
+    },
+    {
+      type: "HorizontalLayout",
+      elements: [
+        {
+          type: "Control",
+          scope: "#/properties/doctorData/properties/שם הרופא",
+        },
+      ],
+    },
   ],
 };
 
