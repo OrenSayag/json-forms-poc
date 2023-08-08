@@ -5,7 +5,7 @@ const schema = {
     doctorData: {
       type: "object",
       properties: {
-        ["שם הרופא"]: {
+        workItem: {
           type: "string",
         },
       },

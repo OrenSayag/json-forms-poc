@@ -103,7 +103,7 @@ const uischema = {
       elements: [
         {
           type: "Control",
-          scope: "#/properties/doctorData/properties/שם הרופא",
+          scope: "#/properties/doctorData/properties/workItem",
         },
       ],
     },
