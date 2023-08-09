@@ -86,11 +86,6 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
         },
       },
     },
-    testPhone: {
-      type: ["string"],
-      minLength: 10,
-      pattern: "^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{4,6}$",
-    },
   },
 });
 

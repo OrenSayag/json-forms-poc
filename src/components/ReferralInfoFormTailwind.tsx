@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, useState } from "react";
+import React, { FC, useState } from "react";
 import { JsonForms } from "@jsonforms/react";
 import referralInfoInitialData from "../assets/schemas/json-forms/referral-info/referral-info.data";
 import { ReferralInfoFormParams } from "../types/form.type";
@@ -15,9 +15,8 @@ import ArrayLayoutRenderer, {
   ArrayLayoutTester,
 } from "./jsonforms-renderers/ArrayLayout";
 import { ValidationMode } from "@jsonforms/core";
-import AJV from "ajv";
 
-const uischema = referralInfoUiSchema;
+const uischema = referralInfoUiSchema({ isDoctor: false });
 
 const styleContextValue = {
   styles: [

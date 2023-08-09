@@ -26,7 +26,7 @@ const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({
   const Form = (
     <JsonForms
       schema={schema}
-      uischema={uischema}
+      uischema={uischema({ isDoctor: true })}
       data={data}
       renderers={materialRenderers}
       cells={materialCells}
