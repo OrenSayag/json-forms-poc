@@ -19,7 +19,7 @@ export const CardRenderer = (props: CardRendererProps) => {
   const elements = uischema.options?.["detail"]["elements"];
   const itemsToRender = elements.map((element: any, index: number) => {
     return (
-      <div className={"h-full"}>
+      <div key={index} className={"h-full"}>
         <ResolvedJsonFormsDispatch
           schema={schema}
           uischema={element}
@@ -27,7 +27,6 @@ export const CardRenderer = (props: CardRendererProps) => {
           enabled={true}
           renderers={renderers}
           cells={cells}
-          key={index}
         />
       </div>
     );

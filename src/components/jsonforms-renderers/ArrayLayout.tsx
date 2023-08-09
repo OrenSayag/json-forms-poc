@@ -7,7 +7,7 @@ import {
   rankWith,
   uiTypeIs,
 } from "@jsonforms/core";
-import React, { useCallback, useEffect } from "react";
+import React, { MouseEventHandler, useCallback, useEffect } from "react";
 import {
   withJsonFormsArrayLayoutProps,
   withJsonFormsControlProps,

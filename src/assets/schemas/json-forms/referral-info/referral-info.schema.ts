@@ -4,6 +4,7 @@ import { listItemsToOneOf } from "../../../../services/utilities.service";
 export const schema = (params: ReferralInfoSchemaParams) => ({
   type: "object",
   additionalProperties: false,
+  required: ["ObligationNumber", "FormFiller.Name"],
   properties: {
     SamplingDoctorLicense: {
       type: "string",
@@ -39,6 +40,7 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
     },
     ObligationNumber: {
       type: "string",
+      minLength: 7,
     },
     LastMenstruationDate: {
       type: "string",
@@ -73,6 +75,7 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
     },
     FormFiller: {
       type: "object",
+      required: ["Name"],
       properties: {
         Name: {
           type: "string",

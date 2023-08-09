@@ -281,6 +281,10 @@ const uischema = {
             },
           ],
         },
+        {
+          type: "Control",
+          scope: "#/properties/testDate",
+        },
       ],
     },
   ],

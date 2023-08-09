@@ -19,10 +19,8 @@ const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({
   const initialData = referralInfoInitialData(initialDataParams);
   const [data, setData] = useState(initialData);
   const schema = referralInfoSchema(schemaParams);
-  const submit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const submit = () => {
     console.log("SUBMIT");
-    console.log(data);
   };
 
   const Form = (

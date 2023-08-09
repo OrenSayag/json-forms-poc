@@ -14,6 +14,8 @@ import { SelectControl, SelectTester } from "./jsonforms-renderers/Select";
 import ArrayLayoutRenderer, {
   ArrayLayoutTester,
 } from "./jsonforms-renderers/ArrayLayout";
+import { ValidationMode } from "@jsonforms/core";
+import AJV from "ajv";
 
 const uischema = referralInfoUiSchema;
 
@@ -23,10 +25,6 @@ const styleContextValue = {
       name: "control",
       classNames: ["my-2"],
     },
-    // {
-    //   name: "array.child.controls.delete",
-    //   classNames: ["bg-[#472F92] px-6 py-2 text-white font-bold rounded-md"],
-    // },
     {
       name: "array.control.add",
       classNames: ["border-2 border-purple-400"],
@@ -65,7 +63,9 @@ const styleContextValue = {
     },
     {
       name: "horizontal.layout",
-      classNames: ["grid grid-cols-3 gap-12 text-right items-center"],
+      classNames: [
+        "grid grid-cols-1 md:grid-cols-3 gap-12 text-right items-center",
+      ],
     },
     {
       name: "group.layout",
@@ -93,10 +93,15 @@ const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({
   const initialData = referralInfoInitialData(initialDataParams);
   const [data, setData] = useState(initialData);
   const schema = referralInfoSchema(schemaParams);
-  const submit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+
+  const [validationMode, setValidationMode] =
+    useState<ValidationMode>("ValidateAndHide");
+  const showValidationMessages = () => {
+    setValidationMode("ValidateAndShow");
+  };
+  const submit = () => {
     console.log("SUBMIT");
-    console.log(data);
+    showValidationMessages();
   };
 
   const Form = (
@@ -107,14 +112,16 @@ const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({
       renderers={renderers}
       cells={vanillaCells}
       onChange={({ data, errors }) => {
-        console.log(data);
+        // console.log({ data, errors });
         setData(data);
       }}
+      validationMode={validationMode}
     />
   );
   return (
     <JsonFormsStyleContext.Provider value={styleContextValue}>
       <JsonFormsWrapper jsonForms={Form} onSubmit={submit} />
+      <pre dir={"ltr"}>{JSON.stringify(data, null, 2)}</pre>
     </JsonFormsStyleContext.Provider>
   );
 };
