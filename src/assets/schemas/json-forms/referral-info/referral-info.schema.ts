@@ -86,6 +86,10 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
         },
       },
     },
+    testRadio: {
+      type: "string",
+      enum: ["one", "two", "three"],
+    },
   },
 });
 

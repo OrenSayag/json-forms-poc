@@ -283,7 +283,10 @@ const uischema = {
         },
         {
           type: "Control",
-          scope: "#/properties/testDate",
+          scope: "#/properties/testRadio",
+          options: {
+            format: "radio",
+          },
         },
       ],
     },
