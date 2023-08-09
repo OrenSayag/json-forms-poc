@@ -283,10 +283,8 @@ const uischema = {
         },
         {
           type: "Control",
-          scope: "#/properties/testRadio",
-          options: {
-            format: "radio",
-          },
+          scope: "#/properties/testPhone",
+          format: "tel",
         },
       ],
     },
