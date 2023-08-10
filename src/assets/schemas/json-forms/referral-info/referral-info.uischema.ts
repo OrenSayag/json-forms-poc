@@ -1,4 +1,4 @@
-const uischema = (params: { isDoctor: boolean }) => ({
+const uischema = {
   type: "VerticalLayout",
   elements: [
     {
@@ -266,14 +266,11 @@ const uischema = (params: { isDoctor: boolean }) => ({
               scope: "#/properties/FormFiller/properties/Name",
               label: "שם ממלא הטופס",
             },
-            params.isDoctor
-              ? undefined
-              : {
-                  type: "Control",
-                  scope:
-                    "#/properties/FormFiller/properties/ApprovingPhysician",
-                  label: "שם הרופא המאשר",
-                },
+            {
+              type: "Control",
+              scope: "#/properties/FormFiller/properties/ApprovingPhysician",
+              label: "שם הרופא המאשר",
+            },
             {
               type: "Control",
               scope: "#/properties/FormFiller/properties/ApprovingPhysician",
@@ -282,11 +279,15 @@ const uischema = (params: { isDoctor: boolean }) => ({
                 condition: {},
               },
             },
-          ].filter(Boolean),
+          ],
         },
       ],
     },
+    {
+      type: "Button",
+      label: "שלח לבדיקה",
+    },
   ],
-});
+};
 
 export default uischema;
