@@ -86,6 +86,9 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
         },
       },
     },
+    testField: {
+      type: "string",
+    },
   },
 });
 

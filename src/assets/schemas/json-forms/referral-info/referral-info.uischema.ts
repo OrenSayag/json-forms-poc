@@ -271,13 +271,17 @@ const uischema = {
               scope: "#/properties/FormFiller/properties/ApprovingPhysician",
               label: "שם הרופא המאשר",
             },
+            // {
+            //   type: "Control",
+            //   scope: "#/properties/FormFiller/properties/ApprovingPhysician",
+            //   rule: {
+            //     effect: "HIDE",
+            //     condition: {},
+            //   },
+            // },
             {
               type: "Control",
-              scope: "#/properties/FormFiller/properties/ApprovingPhysician",
-              rule: {
-                effect: "HIDE",
-                condition: {},
-              },
+              scope: "#/properties/testField",
             },
           ],
         },
