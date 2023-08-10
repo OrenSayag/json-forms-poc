@@ -15,6 +15,10 @@ import ArrayLayoutRenderer, {
   ArrayLayoutTester,
 } from "./jsonforms-renderers/ArrayLayout";
 import { ValidationMode } from "@jsonforms/core";
+import {
+  TextWithIconRenderer,
+  TextWithIconTester,
+} from "./jsonforms-renderers/TextWithIcon";
 
 const uischema = referralInfoUiSchema;
 
@@ -83,6 +87,7 @@ const renderers = [
   ...vanillaRenderers,
   { tester: SelectTester, renderer: SelectControl },
   { tester: ArrayLayoutTester, renderer: ArrayLayoutRenderer },
+  { tester: TextWithIconTester, renderer: TextWithIconRenderer },
 ];
 
 const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({
@@ -111,7 +116,6 @@ const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({
       renderers={renderers}
       cells={vanillaCells}
       onChange={({ data, errors }) => {
-        console.log({ data, errors });
         setData(data);
       }}
       validationMode={validationMode}

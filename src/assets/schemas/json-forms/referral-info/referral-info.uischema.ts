@@ -281,6 +281,15 @@ const uischema = {
             },
           ],
         },
+        {
+          type: "HorizontalLayout",
+          elements: [
+            {
+              type: "TextWithIcon",
+              scope: "#/properties/test",
+            },
+          ],
+        },
       ],
     },
   ],
