@@ -15,7 +15,6 @@ import ArrayLayoutRenderer, {
   ArrayLayoutTester,
 } from "./jsonforms-renderers/ArrayLayout";
 import { ValidationMode } from "@jsonforms/core";
-import { ButtonRenderer, ButtonTester } from "./jsonforms-renderers/Button";
 
 const uischema = referralInfoUiSchema;
 
@@ -84,7 +83,6 @@ const renderers = [
   ...vanillaRenderers,
   { tester: SelectTester, renderer: SelectControl },
   { tester: ArrayLayoutTester, renderer: ArrayLayoutRenderer },
-  { tester: ButtonTester, renderer: ButtonRenderer },
 ];
 
 const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({

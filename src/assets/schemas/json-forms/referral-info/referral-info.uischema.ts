@@ -271,25 +271,37 @@ const uischema = {
               scope: "#/properties/FormFiller/properties/ApprovingPhysician",
               label: "שם הרופא המאשר",
             },
-            // {
-            //   type: "Control",
-            //   scope: "#/properties/FormFiller/properties/ApprovingPhysician",
-            //   rule: {
-            //     effect: "HIDE",
-            //     condition: {},
-            //   },
-            // },
             {
               type: "Control",
-              scope: "#/properties/testField",
+              scope: "#/properties/FormFiller/properties/ApprovingPhysician",
+              rule: {
+                effect: "HIDE",
+                condition: {},
+              },
+            },
+          ],
+        },
+        {
+          type: "HorizontalLayout",
+          elements: [
+            {
+              type: "Control",
+              scope: "#/properties/gender",
+            },
+            {
+              type: "Control",
+              scope: "#/properties/lastMenstruationDate",
+              rule: {
+                effect: "ENABLE",
+                condition: {
+                  scope: "#/properties/gender",
+                  schema: { const: "female" },
+                },
+              },
             },
           ],
         },
       ],
-    },
-    {
-      type: "Button",
-      label: "שלח לבדיקה",
     },
   ],
 };

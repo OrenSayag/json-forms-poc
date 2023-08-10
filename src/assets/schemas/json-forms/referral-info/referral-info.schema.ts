@@ -86,8 +86,13 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
         },
       },
     },
-    testField: {
+    gender: {
       type: "string",
+      enum: ["male", "female"],
+    },
+    lastMenstruationDate: {
+      type: "string",
+      format: "date",
     },
   },
 });
