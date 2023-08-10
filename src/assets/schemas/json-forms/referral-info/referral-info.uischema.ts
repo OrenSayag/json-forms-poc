@@ -285,7 +285,7 @@ const uischema = {
           type: "HorizontalLayout",
           elements: [
             {
-              type: "TextWithIcon",
+              type: "Control",
               scope: "#/properties/test",
             },
           ],

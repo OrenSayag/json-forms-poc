@@ -88,8 +88,7 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
       },
     },
     test: {
-      type: "string",
-      minLength: 5,
+      type: "integer",
     },
   },
 });
