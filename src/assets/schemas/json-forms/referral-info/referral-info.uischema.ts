@@ -281,26 +281,6 @@ const uischema = {
             },
           ],
         },
-        {
-          type: "HorizontalLayout",
-          elements: [
-            {
-              type: "Control",
-              scope: "#/properties/gender",
-            },
-            {
-              type: "Control",
-              scope: "#/properties/lastMenstruationDate",
-              rule: {
-                effect: "ENABLE",
-                condition: {
-                  scope: "#/properties/gender",
-                  schema: { const: "female" },
-                },
-              },
-            },
-          ],
-        },
       ],
     },
   ],

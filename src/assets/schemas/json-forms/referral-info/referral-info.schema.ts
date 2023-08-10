@@ -59,6 +59,7 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
     },
     Anamnesis: {
       type: "array",
+      minItems: 7,
       items: {
         type: "object",
         properties: {
@@ -85,14 +86,6 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
           oneOf: listItemsToOneOf(params.formApprovingPhysicians),
         },
       },
-    },
-    gender: {
-      type: "string",
-      enum: ["male", "female"],
-    },
-    lastMenstruationDate: {
-      type: "string",
-      format: "date",
     },
   },
 });

@@ -111,7 +111,7 @@ const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({
       renderers={renderers}
       cells={vanillaCells}
       onChange={({ data, errors }) => {
-        // console.log({ data, errors });
+        console.log({ data, errors });
         setData(data);
       }}
       validationMode={validationMode}

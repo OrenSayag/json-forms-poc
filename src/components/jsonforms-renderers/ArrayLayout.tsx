@@ -73,7 +73,7 @@ const ArrayLayoutRenderer = ({
   useEffect(() => {}, [data]);
 
   return (
-    <div className={"mt-4 flex flex-col justify-start"}>
+    <div className={"mt-4 flex flex-col justify-start relative"}>
       <button
         className={
           "border-[#472F92] border-2 text-[#472F92] font-medium py-2 w-36 rounded-md"
@@ -83,6 +83,9 @@ const ArrayLayoutRenderer = ({
         הוספת אבחנה +
       </button>
       {toRender}
+      <div className={"absolute -bottom-4 right-0 text-red-500 text-xs"}>
+        {errors}
+      </div>
     </div>
   );
 };
