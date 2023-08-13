@@ -1,28 +1,17 @@
-import React, { FC, useState } from "react";
-import { JsonForms } from "@jsonforms/react";
-import referralInfoInitialData from "../assets/schemas/json-forms/referral-info/referral-info.data";
-import { ReferralInfoFormParams } from "../types/form.type";
-import referralInfoSchema from "../assets/schemas/json-forms/referral-info/referral-info.schema";
-import referralInfoUiSchema from "../assets/schemas/json-forms/referral-info/referral-info.uischema";
-import JsonFormsWrapper from "./JsonFormsWrapper";
+import { vanillaRenderers } from "@jsonforms/vanilla-renderers";
 import {
-  JsonFormsStyleContext,
-  vanillaCells,
-  vanillaRenderers,
-} from "@jsonforms/vanilla-renderers";
-import { SelectControl, SelectTester } from "./jsonforms-renderers/Select";
+  SelectControl,
+  SelectTester,
+} from "../../../components/jsonforms-renderers/Select";
 import ArrayLayoutRenderer, {
   ArrayLayoutTester,
-} from "./jsonforms-renderers/ArrayLayout";
-import { ValidationMode } from "@jsonforms/core";
+} from "../../../components/jsonforms-renderers/ArrayLayout";
 import {
   TextWithIconRenderer,
   TextWithIconTester,
-} from "./jsonforms-renderers/TextWithIcon";
+} from "../../../components/jsonforms-renderers/TextWithIcon";
 
-const uischema = referralInfoUiSchema;
-
-const styleContextValue = {
+export const styleContext = {
   styles: [
     {
       name: "control",
@@ -83,50 +72,9 @@ const styleContextValue = {
   ],
 };
 
-const renderers = [
+export const renderers = [
   ...vanillaRenderers,
   { tester: SelectTester, renderer: SelectControl },
   { tester: ArrayLayoutTester, renderer: ArrayLayoutRenderer },
   { tester: TextWithIconTester, renderer: TextWithIconRenderer },
 ];
-
-const ReferralInfoFormMaterial: FC<ReferralInfoFormParams> = ({
-  schemaParams,
-  initialDataParams,
-}) => {
-  const initialData = referralInfoInitialData(initialDataParams);
-  const [data, setData] = useState(initialData);
-  const schema = referralInfoSchema(schemaParams);
-
-  const [validationMode, setValidationMode] =
-    useState<ValidationMode>("ValidateAndHide");
-  const showValidationMessages = () => {
-    setValidationMode("ValidateAndShow");
-  };
-  const submit = () => {
-    console.log("SUBMIT");
-    showValidationMessages();
-  };
-
-  const Form = (
-    <JsonForms
-      schema={schema}
-      uischema={uischema}
-      data={data}
-      renderers={renderers}
-      cells={vanillaCells}
-      onChange={({ data, errors }) => {
-        setData(data);
-      }}
-      validationMode={validationMode}
-    />
-  );
-  return (
-    <JsonFormsStyleContext.Provider value={styleContextValue}>
-      <JsonFormsWrapper jsonForms={Form} onSubmit={submit} />
-      <pre dir={"ltr"}>{JSON.stringify(data, null, 2)}</pre>
-    </JsonFormsStyleContext.Provider>
-  );
-};
-
-export default ReferralInfoFormMaterial;

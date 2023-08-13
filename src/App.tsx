@@ -7,7 +7,7 @@ import {
   ReferralInfoInitialDataParams,
   ReferralInfoSchemaParams,
 } from "./types/form.type";
-import ReferralInfoFormTailwind from "./components/ReferralInfoFormTailwind";
+import ReferralInfoFormTailwind from "./components/Form";
 
 const referralInfoFormParams: {
   schemaParams: ReferralInfoSchemaParams;

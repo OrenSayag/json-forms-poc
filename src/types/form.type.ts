@@ -1,7 +1,17 @@
+import { JsonSchema, UISchemaElement } from "@jsonforms/core";
+import Ajv from "ajv";
+
 export interface ReferralInfoSchemaParams {
   priceList: ListItem[];
   anamnesis: ListItem[];
   formApprovingPhysicians: ListItem[];
+}
+
+export interface FormParams {
+  initialData?: any;
+  schema: JsonSchema;
+  uischema: UISchemaElement;
+  ajv?: Ajv;
 }
 
 export interface ReferralInfoInitialDataParams {
