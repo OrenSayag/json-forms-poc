@@ -1,7 +1,7 @@
 import { ReferralInfoSchemaParams, urgency } from "../../../../types/form.type";
 import { listItemsToOneOf } from "../../../../services/utilities.service";
 
-export const schema = (params: ReferralInfoSchemaParams) => ({
+const schema = (params: ReferralInfoSchemaParams) => ({
   type: "object",
   additionalProperties: false,
   required: ["ObligationNumber", "FormFiller.Name"],
@@ -86,9 +86,6 @@ export const schema = (params: ReferralInfoSchemaParams) => ({
           oneOf: listItemsToOneOf(params.formApprovingPhysicians),
         },
       },
-    },
-    test: {
-      type: "integer",
     },
   },
 });
